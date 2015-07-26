@@ -28,8 +28,33 @@ class GameController < ApplicationController
       @outcome = "won"
     end
 
-   render("move.html.erb")
+    m = Move.new
+      m.user_move = @user_move
+      m.computer_move = @computer_move
+      m.tie = @computer_move
+      if @outcome == "won"
+        m.user_wins = 1
+        m.computer_wins = 0
+        m.tie = 0
+      elsif @outcome == "lost"
+        m.user_wins = 0
+        m.computer_wins = 1
+        m.tie = 0
+      else @outcome == "tie"
+        m.user_wins = 0
+        m.computer_wins = 0
+        m.tie = 1
+    end
 
+    m.save
+
+    # Retrieving all past moves in order to draw the log
+    @all_moves = Move.all
+
+    @sum = @all_moves.count
+
+
+   render("move.html.erb")
   end
 
 end
