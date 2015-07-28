@@ -76,21 +76,21 @@
             </tr>
             <tr>
               <td>Rock</td>
-              <td><%= @all_moves.sum(:user_wins) %></td>
-              <td><%= @all_moves.sum(:computer_wins) %></td>
-              <td><%= @all_moves.sum(:tie) %></td>
+              <td><%= Move.where({:user_move =>'rock',:user_wins =>1}).count %></td>
+              <td><%= Move.where({:user_move =>'rock',:computer_wins =>1}).count %></td>
+              <td><%= Move.where({:user_move =>'rock',:tie =>1}).count %></td>
             </tr>
             <tr>
               <td>Paper</td>
-              <td><%= @all_moves.sum(:user_wins) %></td>
-              <td><%= @all_moves.sum(:computer_wins) %></td>
-              <td><%= @all_moves.sum(:tie) %></td>
+              <td><%= Move.where({:user_move =>'paper',:user_wins =>1}).count %></td>
+              <td><%= Move.where({:user_move =>'paper',:computer_wins =>1}).count %></td>
+              <td><%= Move.where({:user_move =>'paper',:tie =>1}).count %></td>
             </tr>
             <tr>
               <td>Scissors</td>
-              <td><%= @all_moves.sum(:user_wins) %></td>
-              <td><%= @all_moves.sum(:computer_wins) %></td>
-              <td><%= @all_moves.sum(:tie) %></td>
+              <td><%= Move.where({:user_move =>'scissors',:user_wins =>1}).count %></td>
+              <td><%= Move.where({:user_move =>'scissors',:computer_wins =>1}).count %></td>
+              <td><%= Move.where({:user_move =>'scissors',:tie =>1}).count %></td>
             </tr>
             <tr>
               <th>Total</th>
